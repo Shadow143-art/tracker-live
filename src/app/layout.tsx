@@ -5,6 +5,7 @@ import Providers from '@/components/Providers';
 export const metadata: Metadata = {
   title: 'Tracker - Student & Staff Networking',
   description: 'Connect, network, and grow your career with Tracker.',
+  manifest: '/manifest.json',
 };
 
 export default async function RootLayout({
