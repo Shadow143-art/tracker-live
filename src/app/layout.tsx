@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Connect, network, and grow your career with Tracker.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;

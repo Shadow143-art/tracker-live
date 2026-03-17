@@ -53,7 +53,7 @@ app.prepare().then(() => {
       console.error(err);
       process.exit(1);
     })
-    .listen(port, () => {
-      console.log(`> Ready on http://0.0.0.0:${port}`);
+    .listen(port, 'localhost', () => {
+      console.log(`> Ready on http://localhost:${port}`);
     });
 });
