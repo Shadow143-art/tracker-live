@@ -3,9 +3,9 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.tracker.app',
   appName: 'Tracker',
-  webDir: 'out',
+  webDir: 'dist',
   server: {
-    url: 'https://tracker-fihe.onrender.com',
+    url: 'https://shadow143-art.github.io/tracker/',
     cleartext: true,
   },
 };
