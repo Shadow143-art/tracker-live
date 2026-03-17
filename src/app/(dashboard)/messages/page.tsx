@@ -61,7 +61,7 @@ export default function MessagesPage() {
          const { data: allStudents } = await supabase.from('profiles').select('*').eq('role', 'student').eq('is_profile_completed', true);
          contactsData = allStudents || [];
       } else {
-         // Students see accepted connections
+         // Students see accepted connections + staff who have messaged them
          const { data: accepted } = await supabase
           .from('connections')
           .select(`
@@ -77,6 +77,33 @@ export default function MessagesPage() {
              const rec = Array.isArray(conn.receiver) ? conn.receiver[0] : conn.receiver;
              return req.id === user.id ? rec : req;
            });
+         }
+
+         // Also load staff who have messaged this student
+         const { data: staffMessages } = await supabase
+          .from('messages')
+          .select('sender_id')
+          .eq('receiver_id', user.id)
+          .neq('sender_id', user.id);
+
+         if (staffMessages) {
+           const staffIds = staffMessages.map(msg => msg.sender_id);
+           if (staffIds.length > 0) {
+             const { data: staffProfiles } = await supabase
+              .from('profiles')
+              .select('*')
+              .eq('role', 'staff')
+              .in('id', staffIds);
+
+             if (staffProfiles) {
+               // Add unique staff to contacts
+               staffProfiles.forEach((staff: any) => {
+                 if (staff && !contactsData.find(c => c.id === staff.id)) {
+                   contactsData.push(staff);
+                 }
+               });
+             }
+           }
          }
       }
 
