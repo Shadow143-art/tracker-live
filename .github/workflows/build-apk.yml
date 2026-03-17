@@ -33,23 +33,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Add Android Platform
+      - name: Clean and Add Android Platform
         run: |
-          if [ ! -d "android/app" ]; then
-            rm -rf android
-            npx cap add android
-          fi
-
-      - name: Create assets directories
-        run: |
-          mkdir -p android/app/src/main/assets/public
-          touch android/app/src/main/assets/public/.gitkeep
-
-      - name: Copy web assets
-        run: |
-          if [ -d "dist" ]; then
-            cp -r dist/* android/app/src/main/assets/public/
-          fi
+          rm -rf android
+          npx cap add android
 
       - name: Sync Capacitor
         run: npx cap sync android
