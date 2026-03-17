@@ -1,0 +1,16 @@
+{
+  "/(auth)/login/page": "/login",
+  "/(auth)/signup/page": "/signup",
+  "/(dashboard)/connections/page": "/connections",
+  "/(dashboard)/messages/page": "/messages",
+  "/(dashboard)/profile/setup/page": "/profile/setup",
+  "/(dashboard)/search/page": "/search",
+  "/(dashboard)/staff/page": "/staff",
+  "/(dashboard)/student/page": "/student",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/health/page": "/api/health",
+  "/auth/callback/page": "/auth/callback",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

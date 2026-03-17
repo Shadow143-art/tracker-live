@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:mobile": "next build && node scripts/prepare-capacitor.js",
     "start": "next start",
     "lint": "eslint"
   },

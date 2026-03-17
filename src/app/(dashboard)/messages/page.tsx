@@ -87,7 +87,7 @@ export default function MessagesPage() {
           .neq('sender_id', user.id);
 
          if (staffMessages) {
-           const staffIds = staffMessages.map(msg => msg.sender_id);
+           const staffIds = staffMessages.map((msg: { sender_id: string }) => msg.sender_id);
            if (staffIds.length > 0) {
              const { data: staffProfiles } = await supabase
               .from('profiles')
